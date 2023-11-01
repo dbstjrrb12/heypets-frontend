@@ -5,7 +5,7 @@ import Layout from '@/components/common/layout';
 import HomeHeader from '@/components/common/headers/home';
 
 import type { NextPage } from 'next';
-import { useEffect, type ReactElement } from 'react';
+import { type ReactElement } from 'react';
 import {
   Hydrate,
   QueryClient,
@@ -13,7 +13,7 @@ import {
 } from '@tanstack/react-query';
 import { RecoilRoot } from 'recoil';
 
-import { serviceWorker } from '@mocks/browser';
+import { initMocks } from '@/mocks';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -28,11 +28,7 @@ const queryClient = new QueryClient({
 export default function App({ Component, pageProps }: AppPropsWithHeader) {
   const header = Component.Header ?? HomeHeader;
 
-  useEffect(() => {
-    if (process.env.NODE_ENV === 'development') {
-      serviceWorker().start();
-    }
-  }, []);
+  initMocks();
 
   return (
     <QueryClientProvider client={queryClient}>
