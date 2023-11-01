@@ -1,4 +1,4 @@
-import Modal, { type ModalProps } from '@components/modal';
+import Modal, { type ModalProps } from '@/components/common/modal';
 
 import style from './list_modal.module.css';
 import { MouseEventHandler } from 'react';

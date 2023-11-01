@@ -1,5 +1,5 @@
-import Radio from '@/components/radio';
-import Modal, { ModalProps } from '@components/modal';
+import Radio from '@/components/common/radio';
+import Modal, { ModalProps } from '@/components/common/modal';
 
 import style from './radio_modal.module.css';
 

@@ -1,4 +1,4 @@
-import { EMPTY_DATA_MESSAGE } from '@/components/errorboundary/empty-boundary';
+import { EMPTY_DATA_MESSAGE } from '@/components/common/errorboundary/empty-boundary';
 import PlanItem from '../plan-item';
 import style from './plan.module.css';
 import { useEffect } from 'react';

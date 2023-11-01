@@ -1,5 +1,5 @@
-import PetList from '@/components/page/home/petlist';
-import HomeHeader from '@/components/headers/home';
+import PetList from '@/components/page/home/pet/petlist';
+import HomeHeader from '@/components/common/headers/home';
 
 import style from '@styles/home.module.css';
 import Calendar from '@/components/page/home/calendar';

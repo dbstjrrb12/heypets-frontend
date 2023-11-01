@@ -1,4 +1,4 @@
-import Tag from '@/components/tag';
+import Tag from '@/components/common/tag';
 import style from './plan-item.module.css';
 import Image from 'next/image';
 

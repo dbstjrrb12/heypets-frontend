@@ -1,6 +1,6 @@
 import { useRecoilValue } from 'recoil';
 
-import { Tabs } from '@/components/tabs';
+import { Tabs } from '@/components/common/Tabs';
 
 import { selectedDay } from '@/context/atom/home.atom';
 
@@ -9,7 +9,7 @@ import Day from '@/utils/day';
 import Plan from './plan';
 import style from './today.module.css';
 import EmptyPanel from './empty-panel';
-import EmptyErrorBoundary from '@/components/errorboundary/empty-boundary';
+import EmptyErrorBoundary from '@/components/common/errorboundary/empty-boundary';
 import Diary from './diary';
 
 type TodayProps = {

@@ -5,4 +5,9 @@
 
 .item {
   border-top: 1px solid var(--gray-100);
+  display: block;
+}
+
+.petItem {
+  pointer-events: none;
 }

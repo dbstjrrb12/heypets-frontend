@@ -1,4 +1,4 @@
-import Modal, { ModalProps } from '@components/modal';
+import Modal, { ModalProps } from '@/components/common/modal';
 
 import style from './text_modal.module.css';
 import converToHtml from '@/utils/converToHtml';
