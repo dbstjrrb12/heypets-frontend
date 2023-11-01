@@ -4,6 +4,7 @@ import {
   useState,
   useContext,
   HTMLProps,
+  useEffect,
 } from 'react';
 import {
   SelectProvider,
@@ -40,10 +41,13 @@ const ListBox = ({ children, className, ...restProps }: ListBoxProps) => {
 
 type ButtonProps = ChildrenWithCustomProps<{ isOpen: boolean }>;
 ListBox.Button = function Button({ children, className }: ButtonProps) {
-  const { isOpen, toggleOpen } = useContext(selectContext);
+  const { isOpen, toggleOpen, value: selected } = useContext(selectContext);
 
   return (
-    <button onClick={toggleOpen} className={cn(style.button, className)}>
+    <button
+      disabled={!selected}
+      onClick={toggleOpen}
+      className={cn(style.button, className)}>
       {typeof children === 'function' && children({ isOpen })}
       {typeof children !== 'function' && children}
     </button>
@@ -54,6 +58,12 @@ type OptionsProps = PropsWithChildren<{ className?: string }>;
 ListBox.Options = function Options({ children, className }: OptionsProps) {
   const { isOpen, toggleOpen } = useContext(selectContext);
   const styles = cn(style.options, className);
+
+  useEffect(() => {
+    document
+      .querySelector('main')
+      ?.style.setProperty('overflow', isOpen ? 'hidden' : 'auto');
+  }, [isOpen]);
 
   return (
     <>
@@ -83,7 +93,7 @@ ListBox.Option = function Option({
   const { value: selectedValue, onChange } = useContext(selectContext);
 
   return (
-    <As key={key} className={className} onClick={onChange}>
+    <As key={key} data-id={value} className={className} onClick={onChange}>
       {typeof children === 'function' &&
         children({ selected: value === selectedValue })}
       {typeof children !== 'function' && children}
