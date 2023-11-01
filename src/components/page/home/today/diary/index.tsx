@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 
-import Tag from '@/components/tag';
+import Tag from '@/components/common/tag';
 import converToHtml from '@/utils/converToHtml';
 
 import RightIcon from 'public/icons/arrow_right.svg';

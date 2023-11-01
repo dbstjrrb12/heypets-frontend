@@ -1,8 +1,8 @@
 import '@/styles/reset.css';
 import '@/styles/globals.css';
 import type { AppProps } from 'next/app';
-import Layout from '@/components/layout';
-import HomeHeader from '@/components/headers/home';
+import Layout from '@/components/common/layout';
+import HomeHeader from '@/components/common/headers/home';
 
 import type { NextPage } from 'next';
 import { useEffect, type ReactElement } from 'react';

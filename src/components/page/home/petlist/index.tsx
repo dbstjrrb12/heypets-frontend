@@ -1,4 +1,4 @@
-import ListBox from '@/components/listbox';
+import ListBox from '@/components/common/listbox';
 import PetItem from '../petitem';
 
 import style from './petlist.module.css';

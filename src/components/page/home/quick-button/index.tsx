@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import Floating from '@components/buttons/floating';
+import Floating from '@/components/common/buttons/floating';
 
 import style from './quick-button.module.css';
 import Link from 'next/link';

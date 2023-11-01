@@ -1,5 +1,5 @@
 import { type ReactNode } from 'react';
-import Button, { ButtonProps } from '@/components/buttons/button';
+import Button, { ButtonProps } from '@/components/common/buttons/button';
 
 import style from './floating-button.module.css';
 
