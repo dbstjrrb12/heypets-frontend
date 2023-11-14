@@ -1,21 +1,25 @@
 import { MouseEventHandler } from 'react';
 import cn from 'classnames';
 
+import Day from '@/utils/day';
 import useCalendar, { State } from '@/utils/hooks/use-calendar';
-import { calendarEvents, useCalendarEvents } from '@/api/calendar/calendar';
+import { useCalendarEvents } from '@/api/calendar/calendar';
 
 import LeftIcon from 'public/icons/arrow_left.svg';
 import RightIcon from 'public/icons/arrow_right.svg';
 
 import Mark from './mark';
 import style from './calendar.module.css';
-import { QueryClient, dehydrate } from '@tanstack/react-query';
+import { useRecoilValue } from 'recoil';
+import { selectedDay as selectedDayAtom } from '@/context/atom/home.atom';
 
 type CalendarProps = {
   className?: string;
 };
 
 const Calendar = ({ className }: CalendarProps) => {
+  const selectedDay = useRecoilValue(selectedDayAtom);
+  const selectedMonth = new Day(new Date(selectedDay)).format('MM');
   const { days, weeks, changeDate, date, goToNextMonth, goToPrevMonth } =
     useCalendar();
 
@@ -79,23 +83,25 @@ const Calendar = ({ className }: CalendarProps) => {
         {days.map((week, idx) => {
           return (
             <ul key={`${date.month}_${idx}`} className={style.days}>
-              {week.map(({ value, month }) => {
+              {week.map(({ value: day, month }) => {
                 return (
-                  <li key={`${date.month}_${value}`}>
+                  <li key={`${date.month}_${day}`}>
                     <div
-                      data-day={value}
+                      data-day={day}
                       data-month={month}
                       onClick={onDateClick}
                       className={cn(style.day, {
                         [style.last]: month === 'LAST',
                         [style.next]: month === 'NEXT',
                         [style.selected]:
-                          month === 'CURRENT' && date.day === value,
+                          month === 'CURRENT' &&
+                          date.day === day &&
+                          date.month === Number(selectedMonth),
                       })}>
-                      <span>{value}</span>
+                      <span>{day}</span>
                       {events &&
                         (() => {
-                          const matcher = value - 1;
+                          const matcher = day - 1;
                           const { event_exist, diary_exist } =
                             events?.[matcher];
                           const items = [
@@ -118,14 +124,3 @@ const Calendar = ({ className }: CalendarProps) => {
 };
 
 export default Calendar;
-
-export const getServerSideProps = async () => {
-  // const queryClient = new QueryClient();
-  // queryClient.prefetchQuery(['calendar-events', id], () => calendarEvents());
-
-  return {
-    props: {
-      // dehydratedState: dehydrate(),
-    },
-  };
-};
