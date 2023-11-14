@@ -24,3 +24,43 @@ export const petList = [
     gender: 0,
   },
 ];
+
+export const plans = [
+  {
+    type: 5,
+    interval: 0,
+    title: '제주도 여행',
+  },
+  {
+    type: 1,
+    interval: 1,
+  },
+  {
+    type: 2,
+    interval: 1,
+  },
+  {
+    type: 3,
+    interval: 1,
+  },
+  {
+    type: 3,
+    interval: 2,
+  },
+  {
+    type: 4,
+    interval: 0,
+  },
+  {
+    type: 4,
+    interval: 0,
+  },
+  {
+    type: 4,
+    interval: 0,
+  },
+  {
+    type: 4,
+    interval: 0,
+  },
+];
