@@ -60,7 +60,7 @@ const planType = [
   },
   {
     url: '/image/bath.png',
-    title: '목용',
+    title: '목욕',
     subTitle: '함께 산책할 시간이에요',
   },
   {

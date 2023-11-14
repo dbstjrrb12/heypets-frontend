@@ -1,5 +1,24 @@
+.container {
+  padding-bottom: 20px;
+}
+
 .wrapper {
   padding-top: 12px;
   padding-bottom: 24px;
   background: white;
+}
+
+.link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  color: var(--gray-800);
+  font-size: 14px;
+  line-height: 20px;
+  padding: 10px 16px;
+  background-color: var(--gray-50);
+  width: 130px;
+  border-radius: 20px;
+  border: none;
 }
